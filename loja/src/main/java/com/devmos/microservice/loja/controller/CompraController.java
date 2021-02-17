@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.devmos.microservice.loja.controller.dto.CompraDTO;
+import com.devmos.microservice.loja.model.Compra;
 import com.devmos.microservice.loja.service.CompraService;
 
 @RestController
@@ -15,9 +16,9 @@ public class CompraController {
 	private CompraService compraService;
 	
 	@PostMapping
-	public void realizaCompra(@RequestBody CompraDTO compra){
+	public Compra realizaCompra(@RequestBody CompraDTO compra){
 		
-		compraService.realizaCompra(compra);
+		return  compraService.realizaCompra(compra);
 		
 	}
 
