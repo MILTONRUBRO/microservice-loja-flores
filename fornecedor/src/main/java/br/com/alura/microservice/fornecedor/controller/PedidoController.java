@@ -31,6 +31,7 @@ public class PedidoController {
 	
 	@RequestMapping("/{id}")
 	public Pedido getPedidoPorId(@PathVariable Long id) {
+		logger.info("Recebimento de um pedido");
 		return pedidoService.getPedidoPorId(id);
 	}
 }
