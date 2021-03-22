@@ -35,6 +35,12 @@ public class Pedido {
 	
 	public Pedido() {
 	}
+	
+	public Pedido(Integer tempoDePreparo, PedidoStatus status, List<PedidoItem> itens) {
+		this.tempoDePreparo = tempoDePreparo;
+		this.status = status;
+		this.itens = itens;
+	}
 
 	public List<PedidoItem> getItens() {
 		return itens;
