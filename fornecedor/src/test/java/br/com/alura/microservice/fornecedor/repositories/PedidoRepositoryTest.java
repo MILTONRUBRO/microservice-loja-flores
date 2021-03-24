@@ -1,10 +1,13 @@
 package br.com.alura.microservice.fornecedor.repositories;
 
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -29,8 +32,14 @@ public class PedidoRepositoryTest {
 	@Before
 	public void setup() {
 		Pedido pedido = new Pedido();
+		pedido.setId(1L);
 		pedido.setStatus(PedidoStatus.PRONTO);
 		pedido.setTempoDePreparo(24);
+	}
+	
+	@After
+	public void tearDown() {
+		pedidoRepository.deleteAll();
 	}
 	
 	@Test
@@ -47,6 +56,12 @@ public class PedidoRepositoryTest {
 		Pedido savedPedido = pedidoRepository.save(pedido);
 		
 		assertNotNull(savedPedido);
+	}
+	
+	@Test
+	public void testGetPedidoPorID() {
+		Optional<Pedido> possiblePedido = pedidoRepository.findById(1L);
+		assertTrue(possiblePedido.isPresent());
 	}
 
 }
