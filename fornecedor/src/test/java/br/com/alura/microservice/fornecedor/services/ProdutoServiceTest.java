@@ -3,6 +3,7 @@ package br.com.alura.microservice.fornecedor.services;
 import static org.junit.Assert.assertNotNull;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -34,6 +35,8 @@ public class ProdutoServiceTest {
 	public void setup() {
 		
 		BDDMockito.given(produtoRepository.findByEstado(Mockito.anyString())).willReturn(getListProdutos());
+		BDDMockito.given(produtoRepository.findById(Mockito.anyLong())).willReturn(Optional.of(new Produto()));
+
 	}
 	
 	@Test
@@ -46,5 +49,12 @@ public class ProdutoServiceTest {
 		List<Produto> produtos = List.of(new Produto());
 		return produtos;
 	}
+	
+	@Test
+	public void testGetProdutoporId() {
+		Produto produtoPorid = produtoService.getProdutoPorid(1L);
+		assertNotNull(produtoPorid);
+	}
+	
 
 }
