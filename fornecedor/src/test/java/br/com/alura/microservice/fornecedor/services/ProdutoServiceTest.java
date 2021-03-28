@@ -5,6 +5,7 @@ import static org.junit.Assert.assertNotNull;
 import java.util.List;
 import java.util.Optional;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -37,6 +38,11 @@ public class ProdutoServiceTest {
 		BDDMockito.given(produtoRepository.findByEstado(Mockito.anyString())).willReturn(getListProdutos());
 		BDDMockito.given(produtoRepository.findById(Mockito.anyLong())).willReturn(Optional.of(new Produto()));
 
+	}
+	
+	@After
+	public void teardown() {
+		produtoRepository.deleteAll();
 	}
 	
 	@Test
