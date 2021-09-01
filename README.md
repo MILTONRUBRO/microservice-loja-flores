@@ -1,6 +1,6 @@
 # Api-Loja-Flores
 
-Api-livraria é uma API desenvolvida com java utilizando SpringBoot e toda a tecnologia do spring cloud para trabalhar com microserviços
+Api-Loja-Flores é uma API desenvolvida com java utilizando SpringBoot e toda a tecnologia do spring cloud para trabalhar com microserviços
 
 ## Uso:
 ```
